@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@TelaPrincipalStylesheet.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaPrincipal">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@TelaPrincipalStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaPrincipal">
    <center>
       <AnchorPane>
          <children>
@@ -68,11 +68,11 @@
                   </Button>
                   <Label id="labelTitleEdit" fx:id="labelTitleEdit" layoutX="28.0" layoutY="14.0" prefHeight="24.0" prefWidth="418.0" text="Title" />
                   <Line endX="358.0" layoutX="121.0" layoutY="52.0" startX="-140.0" styleClass="lineEdit" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.5" />
-                  <ScrollPane fx:id="scrollPaneEdit" hbarPolicy="NEVER" layoutX="23.0" layoutY="68.0" pannable="true" prefHeight="460.0" prefWidth="464.0" style="-fx-border-color: #000;" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="68.0" />
+                  <ScrollPane fx:id="scrollPaneEdit" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="23.0" layoutY="68.0" pannable="true" prefHeight="460.0" prefWidth="464.0" style="-fx-border-color: #000;" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="68.0" />
                   <ButtonBar buttonMinWidth="80.0" layoutX="280.0" layoutY="546.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="20.0">
                     <buttons>
-                      <Button id="buttonCancelarEdit" mnemonicParsing="false" onAction="#cancelEdit" prefHeight="40.0" styleClass="buttonsEdit" text="Cancelar" />
-                        <Button id="buttonSalvarEdit" mnemonicParsing="false" onAction="#saveEdit" prefHeight="40.0" styleClass="buttonsEdit" text="Salvar" />
+                      <Button id="buttonCancelarEdit" mnemonicParsing="false" onAction="#cancelEdit" prefHeight="40.0" styleClass="buttonsEdit" text="Cancelar" visible="false" />
+                        <Button id="buttonCancelarEdit" mnemonicParsing="false" onAction="#saveEdit" prefHeight="40.0" styleClass="buttonsEdit" text="OK" />
                     </buttons>
                   </ButtonBar>
                   <Line endX="358.0" layoutX="122.0" layoutY="530.0" startX="-100.0" styleClass="lineEdit" />

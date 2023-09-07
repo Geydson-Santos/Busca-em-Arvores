@@ -5,9 +5,9 @@ public class Contador {
     private Conta arvoreAVL;
     private Conta arvoreBinaria;
     private Conta buscaBinaria;
-    private String[] vetorDinamico;
+    private Palavra[] vetorDinamico;
 
-    public Contador(Conta arvoreAVL, Conta arvoreBinaria, Conta buscaBinaria, String[] vetorDinamico) {
+    public Contador(Conta arvoreAVL, Conta arvoreBinaria, Conta buscaBinaria, Palavra[] vetorDinamico) {
         this.arvoreAVL = arvoreAVL;
         this.arvoreBinaria = arvoreBinaria;
         this.buscaBinaria = buscaBinaria;
@@ -26,7 +26,7 @@ public class Contador {
         return buscaBinaria;
     }
 
-    public String[] getVetorDinamico() {
+    public Palavra[] getVetorDinamico() {
         return vetorDinamico;
     }
 }

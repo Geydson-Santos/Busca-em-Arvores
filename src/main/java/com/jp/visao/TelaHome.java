@@ -3,6 +3,7 @@ package com.jp.visao;
 import com.jp.controle.Controle;
 import com.jp.controle.IControle;
 import com.jp.modelos.Contador;
+import com.jp.modelos.Palavra;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +22,10 @@ public class TelaHome implements Initializable {
 
     IControle controle = new Controle();
 
+    public Contador contador =  null
+            //new Contador(null, null, null, new Palavra[]{new Palavra("ola"), new Palavra("tudo"), new Palavra("bem")})
+            ;
+
     @FXML
     void abrirArquivo(ActionEvent event) {
         FileChooser fc = new FileChooser();
@@ -30,11 +35,18 @@ public class TelaHome implements Initializable {
 
         if (arquivo != null){
             try {
-                Contador contador = controle.arvorizar(arquivo.getAbsolutePath());
+                contador = controle.arvorizar(arquivo.getAbsolutePath());
             }catch (Exception e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    void nothing(){}
+
+    @FXML
+    void visualizarOcorrencias(ActionEvent event) {
+        Run.telaPrincipal.setEditWindow("Ocorrência das Palavras", Run.app.getScene("TelaOcorrências.fxml"), (e) -> nothing());
     }
 
     @Override

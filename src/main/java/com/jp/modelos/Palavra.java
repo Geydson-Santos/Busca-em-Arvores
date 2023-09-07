@@ -2,7 +2,7 @@ package com.jp.modelos;
 
 public class Palavra {
     private final String palavra;
-    private int ocorrencias = 0;
+    private int ocorrencias = 1;
 
     public Palavra(String palavra) {
         this.palavra = palavra;

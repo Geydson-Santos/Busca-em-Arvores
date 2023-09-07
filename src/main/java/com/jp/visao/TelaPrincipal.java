@@ -223,7 +223,7 @@ public class TelaPrincipal implements Initializable{
         });
 
         ((Pane)centerPane.getChildren().get(0)).setPrefWidth(centerPane.getWidth() - 40);
-        ((Pane)centerPane.getChildren().get(0)).setPrefHeight(centerPane.getHeight() - 40);
+        ((Pane)centerPane.getChildren().get(0)).setPrefHeight(centerPane.getHeight() - 70);
 
         editPane.setLayoutX(stage.getWidth()/2 - editPane.getWidth()/2);
         editPane.setLayoutY(stage.getHeight()/2 - editPane.getHeight()/2 - 30);
@@ -259,11 +259,17 @@ public class TelaPrincipal implements Initializable{
         }
     }
 
+    public void relayoutEditPane(){
+        editPane.setLayoutX(this.editPane.getScene().getWindow().getWidth()/2 - editPane.getWidth()/2);
+        editPane.setLayoutY(this.editPane.getScene().getWindow().getHeight()/2 - editPane.getHeight()/2 - 30);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Run.telaPrincipal = this;
         Run.app.stage.setOnShown(windowEvent -> {
             showHome(null);
+            relayoutEditPane();
             //setScene("TelaHome.fxml");
         });
 
@@ -306,6 +312,7 @@ public class TelaPrincipal implements Initializable{
         maximizeButton.setOnAction(actionEvent -> {
             Stage stage = Run.app.stage;
             setMaximized(!stage.isMaximized());
+            relayoutEditPane();
         });
     }
 }
