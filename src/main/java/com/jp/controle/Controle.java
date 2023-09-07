@@ -2,7 +2,9 @@ package com.jp.controle;
 
 import com.jp.modelos.Contador;
 
-public interface Controle {
-
-    Contador arvorizar(String caminhoDoTXT) throws Exception;
+public class Controle implements IControle{
+    @Override
+    public Contador arvorizar(String caminhoDoTXT) throws Exception {
+        return null;
+    }
 }

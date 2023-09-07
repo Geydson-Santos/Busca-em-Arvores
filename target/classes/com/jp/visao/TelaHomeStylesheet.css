@@ -1,5 +1,22 @@
 * {
+    -fx-font-family: Montserrat;
+    -fx-text-fill: #000;
+}
+
+.button {
+    -fx-background-color: #dddddd;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+.label {
     -fx-text-fill: #fff;
+}
+
+#Title {
+    -fx-font-size: 44px;
 }
 
 .root{
