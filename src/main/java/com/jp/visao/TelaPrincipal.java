@@ -61,16 +61,7 @@ public class TelaPrincipal implements Initializable{
     private Pane blurPane;
 
     @FXML
-    public Button botaoVeiculos;
-
-    @FXML
     private Button botaoHome;
-
-    @FXML
-    private Button botaoProprietarios;
-
-    @FXML
-    private Button botaoTipoDeGasto;
 
     @FXML
     private VBox vBoxLeft;
@@ -94,7 +85,7 @@ public class TelaPrincipal implements Initializable{
     Timeline transicao = new Timeline();
 
     enum TelaAtual {
-        TELAHOME, TELAVEICULOS, TELAPROPRIETARIOS, TELATIPODEGASTO
+        TELAHOME
     };
 
     ActionListener metodoEditExit;
@@ -171,10 +162,7 @@ public class TelaPrincipal implements Initializable{
 
                 transicao.setOnFinished(actionEvent -> {
                     vBoxLeft.setPrefWidth(width * aumento);
-                    botaoVeiculos.setText("Veículos");
                     botaoHome.setText("Home");
-                    botaoProprietarios.setText("Proprietários");
-                    botaoTipoDeGasto.setText("Tipo de Gasto");
                     vBoxLeft.lookupAll(".lateralButtons").forEach(node -> {
                         if(node != menuHamburguer){
                             ((Button)node).setPrefWidth(width * aumento);
@@ -195,13 +183,8 @@ public class TelaPrincipal implements Initializable{
                     new KeyFrame(Duration.seconds(0.15), new KeyValue(blurPane.opacityProperty(),0.0, Interpolator.LINEAR))
             );
 
-            botaoVeiculos.setPrefWidth(width / aumento);
             vBoxLeft.setPrefWidth(width / aumento);
-            botaoVeiculos.setText("");
             botaoHome.setText("");
-            botaoProprietarios.setText("");
-            botaoTipoDeGasto.setText("");
-            botaoVeiculos.setAlignment(Pos.CENTER_LEFT);
             transicao.setOnFinished(actionEvent -> {
                 blurPane.setVisible(false);
             });
@@ -227,12 +210,9 @@ public class TelaPrincipal implements Initializable{
             ((Pane)centerPane.getChildren().get(0)).setPrefWidth(centerPane.getWidth() + 40);
             ((Pane)centerPane.getChildren().get(0)).setPrefHeight(centerPane.getHeight() - 10);
             if(telaAtual == TelaAtual.TELAHOME){
-                Run.telaHome.imagem.setFitWidth(centerPane.getWidth() + 40);
-                Run.telaHome.imagem.setFitHeight(centerPane.getHeight() - 10);
                 editPane.setLayoutX(stage.getWidth()/2 - editPane.getWidth()/2);
                 editPane.setLayoutY(stage.getHeight()/2 - editPane.getHeight()/2 - 20);
             }
-            alignTabPaneHeader();
 
             return;
         }
@@ -245,15 +225,8 @@ public class TelaPrincipal implements Initializable{
         ((Pane)centerPane.getChildren().get(0)).setPrefWidth(centerPane.getWidth() - 40);
         ((Pane)centerPane.getChildren().get(0)).setPrefHeight(centerPane.getHeight() - 40);
 
-        if(telaAtual == TelaAtual.TELAHOME){
-            Run.telaHome.imagem.setFitWidth(centerPane.getWidth() - 40);
-            Run.telaHome.imagem.setFitHeight(centerPane.getHeight() - 40);
-        }
-
         editPane.setLayoutX(stage.getWidth()/2 - editPane.getWidth()/2);
         editPane.setLayoutY(stage.getHeight()/2 - editPane.getHeight()/2 - 30);
-
-        alignTabPaneHeader();
     }
 
     @FXML
@@ -262,39 +235,6 @@ public class TelaPrincipal implements Initializable{
         setBotaoSelecionadoSideBar();
 
         setScene("TelaHome.fxml");
-    }
-
-    @FXML
-    private void showProprietarios(ActionEvent event) {
-        telaAtual = TelaAtual.TELAPROPRIETARIOS;
-        setBotaoSelecionadoSideBar();
-        setScene("TelaProprietarios.fxml");
-    }
-
-    @FXML
-    private void showTipoDeGasto(ActionEvent event) {
-        telaAtual = TelaAtual.TELATIPODEGASTO;
-        setBotaoSelecionadoSideBar();
-        setScene("TelaTipoDeGasto.fxml");
-    }
-
-    @FXML
-    private void showVeiculos(ActionEvent event) {
-        telaAtual = TelaAtual.TELAVEICULOS;
-        setBotaoSelecionadoSideBar();
-        setScene("TelaVeiculos.fxml");
-        alignTabPaneHeader();
-    }
-
-    public void alignTabPaneHeader(){
-        try {
-            if(telaAtual == TelaAtual.TELAVEICULOS){
-                TabPane tabPane = ((TabPane)((AnchorPane) centerPane.getChildren().get(0)).getChildren().get(0));
-                tabPane.setTabMinWidth((Run.app.stage.getWidth() - Run.app.stage.getWidth() * 5/100) / tabPane.getTabs().size() - 40);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     public void setScene(String fxml){
@@ -310,29 +250,11 @@ public class TelaPrincipal implements Initializable{
     public void setBotaoSelecionadoSideBar(){
         botaoHome.setId("");
         ((ImageView) botaoHome.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/home.png").toString()));
-        botaoVeiculos.setId("");
-        ((ImageView) botaoVeiculos.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/veiculos.png").toString()));
-        botaoProprietarios.setId("");
-        ((ImageView) botaoProprietarios.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/proprietarios.png").toString()));
-        botaoTipoDeGasto.setId("");
-        ((ImageView) botaoTipoDeGasto.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/gastos.png").toString()));
 
         switch(telaAtual){
             case TELAHOME:
                 botaoHome.setId("selectedButtonSideBar");
                 ((ImageView) botaoHome.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/home_black.png").toString()));
-                break;
-            case TELAVEICULOS:
-                botaoVeiculos.setId("selectedButtonSideBar");
-                ((ImageView) botaoVeiculos.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/veiculos_black.png").toString()));
-                break;
-            case TELAPROPRIETARIOS:
-                botaoProprietarios.setId("selectedButtonSideBar");
-                ((ImageView) botaoProprietarios.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/proprietarios_black.png").toString()));
-                break;
-            case TELATIPODEGASTO:
-                botaoTipoDeGasto.setId("selectedButtonSideBar");
-                ((ImageView) botaoTipoDeGasto.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/gastos_black.png").toString()));
                 break;
         }
     }

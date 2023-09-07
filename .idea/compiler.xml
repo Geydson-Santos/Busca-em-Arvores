@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="VEC" />
+        <module name="Busca-em-Arvores" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Busca em Árvores" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

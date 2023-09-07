@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Bloom?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="paneRoot" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaHome">
+<AnchorPane fx:id="paneRoot" style="-fx-background-color: #1E1F22;" stylesheets="@TelaHomeStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaHome">
    <children>
-      <ImageView fx:id="imagem" fitHeight="690.0" fitWidth="1340.0" pickOnBounds="true">
-         <image>
-            <Image url="@../icones/Tela3.jpg" />
-         </image>
-         <effect>
-            <Bloom threshold="0.0" />
-         </effect>
-      </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="548.0" layoutY="592.0" text="Boa noite!" textFill="#0a0000" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font size="59.0" />
-         </font>
-      </Label>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="1185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="243.0" prefHeight="86.0" prefWidth="1190.0" text="Boa noite!" textFill="#0a0000" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="290.0">
+               <font>
+                  <Font size="59.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

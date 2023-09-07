@@ -18,9 +18,6 @@ public class TelaHome implements Initializable {
 
 
     @FXML
-    public ImageView imagem;
-
-    @FXML
     public Pane paneRoot;
 
     @Override
