@@ -35,7 +35,10 @@ public class TelaHome implements Initializable {
 
         if (arquivo != null){
             try {
-                contador = controle.arvorizar(arquivo.getAbsolutePath());
+                new Thread(() -> {
+                    contador = controle.arvorizar(arquivo.getAbsolutePath());
+                }).run();
+
             }catch (Exception e) {
                 e.printStackTrace();
             }

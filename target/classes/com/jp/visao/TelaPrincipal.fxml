@@ -107,9 +107,6 @@
          </right>
          <left>
             <ImageView id="logoVEC" fx:id="logoVEC" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 10;" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../icones/logo.png" />
-               </image>
                <viewport>
                   <Rectangle2D />
                </viewport>
@@ -119,7 +116,7 @@
             <DropShadow height="15.0" radius="7.0" width="15.0" />
          </effect>
          <center>
-            <Label id="nomeVECTitlebar" alignment="CENTER" text="VEC" textFill="WHITE" BorderPane.alignment="CENTER" />
+            <Label id="nomeVECTitlebar" alignment="CENTER" text="Estrutura de Dados" textFill="WHITE" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </top>
