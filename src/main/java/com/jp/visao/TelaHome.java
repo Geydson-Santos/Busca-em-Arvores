@@ -7,16 +7,41 @@ import com.jp.modelos.Palavra;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
+import javax.swing.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TelaHome implements Initializable {
 
+    @FXML
+    private Button btnOcorrencias;
 
+    @FXML
+    private Label labelArvoreAVLComparacoes;
+
+    @FXML
+    private Label labelArvoreAVLTempo;
+
+    @FXML
+    private Label labelArvoreBinariaComparacoes;
+
+    @FXML
+    private Label labelArvoreBinariaTempo;
+
+    @FXML
+    private Label labelBuscaBinariaComparacoes;
+
+    @FXML
+    private Label labelBuscaBinariaTempo;
+
+    @FXML
+    private Label labelCarregando;
     @FXML
     public Pane paneRoot;
 
@@ -34,15 +59,32 @@ public class TelaHome implements Initializable {
         File arquivo = fc.showOpenDialog(this.paneRoot.getScene().getWindow());
 
         if (arquivo != null){
+            labelCarregando.setVisible(true);
             new Thread(() -> {
-            try {
+                try {
+                        contador = controle.arvorizar(arquivo.getAbsolutePath());
 
-                    contador = controle.arvorizar(arquivo.getAbsolutePath());
+                        if (contador != null){
+                            labelBuscaBinariaComparacoes.setText(contador.getBuscaBinaria().getComparacoes() + "");
+                            labelBuscaBinariaTempo.setText(contador.getBuscaBinaria().getTempo());
 
+                            labelArvoreAVLComparacoes.setText(contador.getArvoreAVL().getComparacoes() + "");
+                            labelArvoreAVLTempo.setText(contador.getArvoreAVL().getTempo());
 
-            }catch (Exception e) {
-                e.printStackTrace();
-            }
+                            labelArvoreBinariaComparacoes.setText(contador.getArvoreBinaria().getComparacoes() + "");
+                            labelArvoreBinariaTempo.setText(contador.getArvoreBinaria().getTempo());
+
+                            btnOcorrencias.setDisable(false);
+                        }else{
+                            throw new Exception("Não foi possível processar o arquivo.");
+                        }
+
+                        labelCarregando.setVisible(false);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    labelCarregando.setVisible(false);
+                    //setCarregandoVisible(false);
+                }
             }).run();
         }
     }
