@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane stylesheets="@TelaOcorrências.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaOcorrências">
+<AnchorPane stylesheets="@TelaOcorrências.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaOcorrências">
    <children>
       <TableView fx:id="TabelaOcorrencias" layoutY="8.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="290.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>

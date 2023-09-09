@@ -7,6 +7,7 @@ import com.jp.modelos.Palavra;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -51,6 +52,8 @@ public class TelaHome implements Initializable {
             //new Contador(null, null, null, new Palavra[]{new Palavra("ola"), new Palavra("tudo"), new Palavra("bem")})
             ;
 
+    Alert PopupAlerta = new Alert(Alert.AlertType.ERROR);
+
     @FXML
     void abrirArquivo(ActionEvent event) {
         FileChooser fc = new FileChooser();
@@ -82,6 +85,8 @@ public class TelaHome implements Initializable {
                         labelCarregando.setVisible(false);
                 }catch (Exception e) {
                     e.printStackTrace();
+                    PopupAlerta.setContentText(e.getMessage());
+                    PopupAlerta.show();
                     labelCarregando.setVisible(false);
                     //setCarregandoVisible(false);
                 }
@@ -99,5 +104,6 @@ public class TelaHome implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Run.telaHome = this;
+        PopupAlerta.setTitle("");
     }
 }
