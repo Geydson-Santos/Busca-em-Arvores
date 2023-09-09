@@ -34,14 +34,16 @@ public class TelaHome implements Initializable {
         File arquivo = fc.showOpenDialog(this.paneRoot.getScene().getWindow());
 
         if (arquivo != null){
+            new Thread(() -> {
             try {
-                new Thread(() -> {
+
                     contador = controle.arvorizar(arquivo.getAbsolutePath());
-                }).run();
+
 
             }catch (Exception e) {
                 e.printStackTrace();
             }
+            }).run();
         }
     }
 
