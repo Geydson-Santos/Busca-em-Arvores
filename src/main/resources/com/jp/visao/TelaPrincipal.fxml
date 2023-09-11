@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@TelaPrincipalStylesheet.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaPrincipal">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@TelaPrincipalStylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaPrincipal">
    <center>
       <AnchorPane>
          <children>
@@ -84,7 +84,7 @@
    <top>
       <BorderPane id="titlebar" fx:id="barraDeTitulo" prefHeight="40.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <right>
-            <FlowPane prefHeight="80.0" prefWidth="135.0" BorderPane.alignment="CENTER">
+            <FlowPane prefHeight="40.0" prefWidth="140.0" BorderPane.alignment="CENTER">
                <children>
                   <Button id="minimizeButton" fx:id="minimizeButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0" text="—" />
                   <Button id="maximizeButton" fx:id="maximizeButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="45.0">
