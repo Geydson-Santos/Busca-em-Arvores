@@ -34,8 +34,8 @@ public class ArvoreBalanceada {
             }
         }
         retorno.setTempo(tempoFinal+" " + tempoAtual);
-        System.out.println(retorno.getTempo());
-        return retorno;
+        System.out.println(retorno.getTempo() + "   Balanceada");
+        return null;
     }
 
     public class Node {

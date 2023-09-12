@@ -36,7 +36,7 @@ public class ArvoreDesbalanceada {
         }
         retorno.setTempo(tempoFinal+" " + tempoAtual);
         System.out.println(retorno.getTempo());
-        return retorno;
+        return null;
     }
 
     public class Node {
