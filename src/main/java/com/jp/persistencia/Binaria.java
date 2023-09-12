@@ -1,6 +1,7 @@
 package com.jp.persistencia;
 
 import com.jp.modelos.BuscaBinaria;
+import com.jp.modelos.Conta;
 import com.jp.modelos.Contador;
 import com.jp.modelos.Palavra;
 import java.util.Arrays;
@@ -35,8 +36,12 @@ public class Binaria {
             }
         }
         
+        Contador contador = new Contador();
+
+        contador.setVetorDinamico(palavras);
+
+        contador.setBuscaBinaria(new Conta(0, "nao processado"));
         
-        
-        return null;
+        return contador;
     }   
 }
