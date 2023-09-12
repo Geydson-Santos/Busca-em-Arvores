@@ -13,8 +13,9 @@ public class Controle implements IControle{
         String texto = limpaTexto(caminhoDoTXT);
         texto = retiraStop(texto);
         String[] textoSeparado = texto.split(" ");
-        ArvoreBalanceada teste = new ArvoreBalanceada();
-        teste.executarCodigo(textoSeparado);
+        Contador resposta = Binaria.buscaBinaria(textoSeparado);
+        ArvoreBalanceada AB = new ArvoreBalanceada();
+        AB.executarCodigo(textoSeparado);
         return null;
     }
 
@@ -39,5 +40,18 @@ public class Controle implements IControle{
         }
         textoBruto = textoBruto.trim();
         return textoBruto;
+    }
+
+    public  static String senhorDoTempo(long tempoFinal){
+        String tempoAtual = "Nanosegundos";
+        if(tempoFinal > 1000000){
+            tempoFinal = tempoFinal/1000000;
+            tempoAtual = "Milisegundos";
+            if(tempoFinal > 10000){
+                tempoFinal = tempoFinal/1000;
+                tempoAtual = "Segundos";
+            }
+        }
+        return tempoFinal+" " + tempoAtual;
     }
 }

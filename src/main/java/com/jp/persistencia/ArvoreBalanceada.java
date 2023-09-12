@@ -23,8 +23,8 @@ public class ArvoreBalanceada {
         }
         System.out.println(compara+ "");
         printAVLTree();
-        String tempoAtual = "Nanosegundos";
         Conta retorno = new Conta(compara, "");
+        String tempoAtual = "Nanosegundos";
         if(tempoFinal > 1000000){
             tempoFinal = tempoFinal/1000000;
             tempoAtual = "Milisegundos";
