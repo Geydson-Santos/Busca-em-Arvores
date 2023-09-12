@@ -24,6 +24,7 @@ public class Controle implements IControle{
             textoBruto = textoBruto.replace(System.lineSeparator(), " ");
         }
         String textoLimpo = textoBruto.trim();
+        textoLimpo = textoLimpo.toLowerCase();
         return textoLimpo;
     }
 
