@@ -18,30 +18,30 @@ public class ArvoreDesbalanceada {
     private Node root;
 
     private boolean maiorQue(Palavra primeiro, Palavra segundo) {
-        if(Character.compare(primeiro.getLetra(), segundo.getLetra()) > 0) return true;
+        if(primeiro.getPalavra().compareTo(segundo.getPalavra()) > 0) return true;
 
         return false;
     }
 
-    private boolean maiorQue(char primeiro, char segundo) {
+    /*private boolean maiorQue(char primeiro, char segundo) {
         if(Character.compare(primeiro, segundo) > 0) return true;
 
         return false;
-    }
+    }*/
 
-    private boolean menorQue(No primeiro, No segundo) {
-        if(Character.compare(primeiro.getLetra(), segundo.getLetra()) < 0) return true;
+    private boolean menorQue(Palavra primeiro, Palavra segundo) {
+        if(primeiro.getPalavra().compareTo(segundo.getPalavra()) < 0) return true;
 
         return false;
     }
 
-    private boolean menorQue(char primeiro, char segundo) {
+    /*private boolean menorQue(char primeiro, char segundo) {
         if(Character.compare(primeiro, segundo) < 0) return true;
 
         return false;
-    }
+    }*/
 
-    public Node find(No key) {
+    public Node find(Palavra key) {
         Node current = root;
         while (current != null) {
             if (current.key == key) {
@@ -52,7 +52,7 @@ public class ArvoreDesbalanceada {
         return current;
     }
 
-    public Node find(char letra) {
+    /*public Node find(char letra) {
         Node current = root;
         while (current != null) {
             if (current.key.getLetra() == letra) {
@@ -62,13 +62,13 @@ public class ArvoreDesbalanceada {
             current = menorQue(current.key.getLetra(), letra) ? current.right : current.left;
         }
         return current;
-    }
+    }*/
 
-    public void insert(No key) {
+    public void insert(Palavra key) {
         root = insert(root, key);
     }
 
-    public void delete(No key) {
+    public void delete(Palavra key) {
         root = delete(root, key);
     }
 
@@ -88,7 +88,7 @@ public class ArvoreDesbalanceada {
         } else if (menorQue(node.key, key)) {
             node.right = insert(node.right, key);
         } else {
-            throw new RuntimeException("duplicate Key!");
+            System.out.println("Deu certo");
         }
         return rebalance(node);
     }
@@ -187,7 +187,7 @@ public class ArvoreDesbalanceada {
                 System.out.print("├─");
                 indent += "│ ";
             }
-            System.out.println(node.key.getLetra());
+            System.out.println(node.key.getPalavra());
 
             printAVLTree(node.left, indent, false);
             printAVLTree(node.right, indent, true);

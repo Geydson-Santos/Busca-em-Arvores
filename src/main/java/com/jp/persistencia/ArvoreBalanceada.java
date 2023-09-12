@@ -1,8 +1,19 @@
 package com.jp.persistencia;
-
+import com.jp.modelos.*;
 import com.jp.modelos.Palavra;
 
 public class ArvoreBalanceada {
+
+    public Conta executarCodigo(String[] vetorRecebido){
+        String[] Vetor   = vetorRecebido;
+        for (String palavra:
+             Vetor) {
+            Palavra palavraAtual = new Palavra(palavra);
+            insert(palavraAtual);
+        }
+        printAVLTree();
+        return null;
+    }
 
     public class Node {
         public Palavra key;
@@ -89,7 +100,7 @@ public class ArvoreBalanceada {
         } else {
             System.out.println("Deu certo");;
         }
-        return rebalance(node);
+        return node;
     }
 
     private Node delete(Node node, Palavra key) {

@@ -1,5 +1,5 @@
 package com.jp.controle;
-
+import com.jp.persistencia.*;
 import com.jp.modelos.Contador;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,6 +12,7 @@ public class Controle implements IControle{
         String texto = limpaTexto(caminhoDoTXT);
         texto = retiraStop(texto);
         String[] textoSeparado = texto.split(" ");
+        ArvoreBalanceada teste = new ArvoreBalanceada();
 
         return null;
     }
