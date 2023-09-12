@@ -1,8 +1,43 @@
 package com.jp.persistencia;
 
+import com.jp.modelos.Conta;
 import com.jp.modelos.Palavra;
 
 public class ArvoreDesbalanceada {
+    public int compara = 0;
+
+    public Conta executarCodigo(String[] vetorRecebido){
+        String[] Vetor   = vetorRecebido;
+        long startTime;
+        long endTime;
+        long timeElapsed;
+        long tempoFinal = 0;
+        compara = 0;
+        for (String palavra:
+                Vetor) {
+            Palavra palavraAtual = new Palavra(palavra);
+            startTime = System.nanoTime();
+            insert(palavraAtual);
+            endTime = System.nanoTime();
+            timeElapsed = endTime - startTime;
+            tempoFinal = tempoFinal + timeElapsed;
+        }
+        System.out.println(compara+ "");
+        printAVLTree();
+        String tempoAtual = "Nanosegundos";
+        Conta retorno = new Conta(compara, "");
+        if(tempoFinal > 1000000){
+            tempoFinal = tempoFinal/1000000;
+            tempoAtual = "Milisegundos";
+            if(tempoFinal > 10000){
+                tempoFinal = tempoFinal/1000;
+                tempoAtual = "Segundos";
+            }
+        }
+        retorno.setTempo(tempoFinal+" " + tempoAtual);
+        System.out.println(retorno.getTempo());
+        return retorno;
+    }
 
     public class Node {
         public Palavra key;
@@ -84,13 +119,16 @@ public class ArvoreDesbalanceada {
         if (node == null) {
             return new Node(key);
         } else if (maiorQue(node.key, key)) {
+            compara++;
             node.left = insert(node.left, key);
         } else if (menorQue(node.key, key)) {
+            compara++;
             node.right = insert(node.right, key);
         } else {
-            System.out.println("Deu certo");
+            compara++;
+            //System.out.println("Deu certo");
         }
-        return rebalance(node);
+        return node;
     }
 
     private Node delete(Node node, Palavra key) {

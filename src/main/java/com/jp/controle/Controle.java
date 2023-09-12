@@ -1,4 +1,5 @@
 package com.jp.controle;
+import com.jp.modelos.Conta;
 import com.jp.persistencia.*;
 import com.jp.modelos.Contador;
 import java.io.File;
@@ -13,7 +14,7 @@ public class Controle implements IControle{
         texto = retiraStop(texto);
         String[] textoSeparado = texto.split(" ");
         ArvoreBalanceada teste = new ArvoreBalanceada();
-
+        teste.executarCodigo(textoSeparado);
         return null;
     }
 
