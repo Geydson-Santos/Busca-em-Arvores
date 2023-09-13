@@ -7,6 +7,8 @@
     -fx-background-color: #dddddd;
     -fx-font-size: 16px;
     -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-tile-alignment: center;
 }
 
 .button:hover {
