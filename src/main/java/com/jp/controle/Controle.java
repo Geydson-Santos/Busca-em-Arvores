@@ -22,7 +22,6 @@ public class Controle implements IControle{
         ArvoreBalanceada AB = new ArvoreBalanceada();
         ArvoreDesbalanceada AD = new ArvoreDesbalanceada();
         resposta.setArvoreAVL(AB.executarCodigo(textoSeparado));
-        System.out.println(resposta.getArvoreAVL().getComparacoes() + "|");
         resposta.setArvoreBinaria(AD.executarCodigo(textoSeparado));
         return resposta;
     }
