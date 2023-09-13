@@ -21,7 +21,6 @@ public class ArvoreBalanceada {
             timeElapsed = endTime - startTime;
             tempoFinal = tempoFinal + timeElapsed;
         }
-        System.out.println(compara+ "");
         printAVLTree();
         Conta retorno = new Conta(compara, "");
         String tempoAtual = "Nanosegundos";
@@ -34,7 +33,6 @@ public class ArvoreBalanceada {
             }
         }
         retorno.setTempo(tempoFinal+" " + tempoAtual);
-        System.out.println(retorno.getTempo() + "   Balanceada");
         return null;
     }
 
