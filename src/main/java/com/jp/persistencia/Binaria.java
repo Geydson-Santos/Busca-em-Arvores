@@ -27,12 +27,12 @@ public class Binaria {
             }
             else{
                 Palavra novoVetorPalavra[] = new Palavra[palavras.length+1];
-                for(int i = 0; i<palavras.length-1;i++) {
-                    novoVetorPalavra[i] = palavras[i];
+                for(int i = 0; i<palavras.length;i++) {
+                    novoVetorPalavra[i] = new Palavra(palavras[i].getPalavra());
+                    novoVetorPalavra[i].setOcorrencias(palavras[i].getOcorrencias());
                 }
                 novoVetorPalavra[novoVetorPalavra.length-1] = new Palavra(palavraString);
                 palavras = novoVetorPalavra;
-
                 palavras = QuickSort.quickSort(palavras);
             }
         }

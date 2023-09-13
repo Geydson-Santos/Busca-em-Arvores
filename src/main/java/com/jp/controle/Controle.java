@@ -13,6 +13,11 @@ public class Controle implements IControle{
         String texto = limpaTexto(caminhoDoTXT);
         texto = retiraStop(texto);
         String[] textoSeparado = texto.split(" ");
+        for (String teste :
+                textoSeparado) {
+            //System.out.print(teste + "|");
+
+        }
         Contador resposta = Binaria.buscaBinaria(textoSeparado);
         ArvoreBalanceada AB = new ArvoreBalanceada();
         ArvoreDesbalanceada AD = new ArvoreDesbalanceada();
