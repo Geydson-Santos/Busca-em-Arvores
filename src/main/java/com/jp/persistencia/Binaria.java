@@ -1,10 +1,8 @@
 package com.jp.persistencia;
 
 import com.jp.controle.Controle;
-import com.jp.modelos.BuscaBinaria;
-import com.jp.modelos.Conta;
-import com.jp.modelos.Contador;
-import com.jp.modelos.Palavra;
+import com.jp.modelos.*;
+
 import java.util.Arrays;
 
 public class Binaria {
@@ -36,7 +34,7 @@ public class Binaria {
                 novoVetorPalavra[novoVetorPalavra.length-1] = new Palavra(palavraString);
                 palavras = novoVetorPalavra;
 
-                palavras = (Palavra[]) Arrays.asList(palavras).stream().sorted((o1, o2) -> o1.getPalavra().compareTo(o2.getPalavra())).toArray();
+                palavras = QuickSort.quickSort(palavras);
             }
         }
         
