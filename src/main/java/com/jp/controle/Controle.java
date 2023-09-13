@@ -15,8 +15,10 @@ public class Controle implements IControle{
         String[] textoSeparado = texto.split(" ");
         Contador resposta = Binaria.buscaBinaria(textoSeparado);
         ArvoreBalanceada AB = new ArvoreBalanceada();
-        AB.executarCodigo(textoSeparado);
-        return null;
+        ArvoreDesbalanceada AD = new ArvoreDesbalanceada();
+        resposta.setArvoreAVL(AB.executarCodigo(textoSeparado));
+        resposta.setArvoreBinaria(AD.executarCodigo(textoSeparado));
+        return resposta;
     }
 
     private String limpaTexto(String caminhoDoTXT) throws FileNotFoundException {
