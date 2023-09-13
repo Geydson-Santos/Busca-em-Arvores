@@ -1,5 +1,6 @@
 package com.jp.persistencia;
 
+import com.jp.controle.Controle;
 import com.jp.modelos.BuscaBinaria;
 import com.jp.modelos.Conta;
 import com.jp.modelos.Contador;
@@ -7,11 +8,14 @@ import com.jp.modelos.Palavra;
 import java.util.Arrays;
 
 public class Binaria {
-    
-    private static String vetorPalavras[] = null;
+
+    private static int comparacoes = 0;
+
+    public static void incComparacoes(){comparacoes += 1;}
 
     public static Contador buscaBinaria(String vetorDePalavras[]) {
-        vetorPalavras = vetorDePalavras;
+        comparacoes = 0;
+        long tempoInicial = System.nanoTime();
         
         Palavra palavras[] = new Palavra[1];
         palavras[0] = new Palavra(vetorDePalavras[0]);
@@ -40,7 +44,11 @@ public class Binaria {
 
         contador.setVetorDinamico(palavras);
 
-        contador.setBuscaBinaria(new Conta(0, "nao processado"));
+        long tempoFinal = System.nanoTime();
+
+        long tempoTotal = tempoFinal - tempoInicial;
+
+        contador.setBuscaBinaria(new Conta(comparacoes, Controle.senhorDoTempo(tempoTotal)));
         
         return contador;
     }   
