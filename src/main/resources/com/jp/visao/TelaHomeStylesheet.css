@@ -26,11 +26,11 @@
 }
 
 .titleBlocos {
-    -fx-font-size: 28px;
+    -fx-font-size: 24px;
 }
 
 .metricasBlocos {
-    -fx-font-size: 24px;
+    -fx-font-size: 20px;
 }
 
 .anchorPaneBlocos {
