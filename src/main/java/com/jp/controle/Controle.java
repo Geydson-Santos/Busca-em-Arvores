@@ -22,6 +22,7 @@ public class Controle implements IControle{
         ArvoreBalanceada AB = new ArvoreBalanceada();
         ArvoreDesbalanceada AD = new ArvoreDesbalanceada();
         resposta.setArvoreAVL(AB.executarCodigo(textoSeparado));
+        System.out.println(resposta.getArvoreAVL().getComparacoes() + "|");
         resposta.setArvoreBinaria(AD.executarCodigo(textoSeparado));
         return resposta;
     }
@@ -51,7 +52,7 @@ public class Controle implements IControle{
 
     public  static String senhorDoTempo(long tempoFinal){
         String tempoAtual = "Nanosegundos";
-        if(tempoFinal > 1000000){
+        if(tempoFinal > 10000000){
             tempoFinal = tempoFinal/1000000;
             tempoAtual = "Milisegundos";
             if(tempoFinal > 10000){

@@ -22,7 +22,6 @@ public class ArvoreDesbalanceada {
             timeElapsed = endTime - startTime;
             tempoFinal = tempoFinal + timeElapsed;
         }
-        printAVLTree();
         String tempoAtual = "Nanosegundos";
         Conta retorno = new Conta(compara, "");
         if(tempoFinal > 1000000){
@@ -34,7 +33,7 @@ public class ArvoreDesbalanceada {
             }
         }
         retorno.setTempo(tempoFinal+" " + tempoAtual);
-        return null;
+        return retorno;
     }
 
     public class Node {
