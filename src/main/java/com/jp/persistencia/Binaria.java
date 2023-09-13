@@ -15,10 +15,9 @@ public class Binaria {
         comparacoes = 0;
         long tempoInicial = System.nanoTime();
         
-        Palavra palavras[] = new Palavra[1];
-        palavras[0] = new Palavra(vetorDePalavras[0]);
+        Palavra palavras[] = new Palavra[0];
         
-        for(int j = 1; j < vetorDePalavras.length;j++) {
+        for(int j = 0; j < vetorDePalavras.length;j++) {
             String palavraString = vetorDePalavras[j];
             int posPalavraEncontrada = BuscaBinaria.binaria(palavras, palavraString, 0, palavras.length-1);
             boolean palavraIgual = posPalavraEncontrada != -1;
