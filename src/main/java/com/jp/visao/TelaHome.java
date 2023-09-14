@@ -4,6 +4,7 @@ import com.jp.controle.Controle;
 import com.jp.controle.IControle;
 import com.jp.modelos.Contador;
 import com.jp.modelos.Palavra;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,31 +70,51 @@ public class TelaHome implements Initializable {
                     try {
                         contador = controle.arvorizar(arquivo.getAbsolutePath());
 
+
                         if (contador != null){
-                            labelBuscaBinariaComparacoes.setText(contador.getBuscaBinaria().getComparacoes() + "");
-                            labelBuscaBinariaTempo.setText(contador.getBuscaBinaria().getTempo());
 
-                            labelArvoreAVLComparacoes.setText(contador.getArvoreAVL().getComparacoes() + "");
-                            labelArvoreAVLTempo.setText(contador.getArvoreAVL().getTempo());
 
-                            labelArvoreBinariaComparacoes.setText(contador.getArvoreBinaria().getComparacoes() + "");
-                            labelArvoreBinariaTempo.setText(contador.getArvoreBinaria().getTempo());
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    labelBuscaBinariaComparacoes.setText(contador.getBuscaBinaria().getComparacoes() + "");
+                                    labelBuscaBinariaTempo.setText(contador.getBuscaBinaria().getTempo());
 
-                            btnOcorrencias.setDisable(false);
+                                    labelArvoreAVLComparacoes.setText(contador.getArvoreAVL().getComparacoes() + "");
+                                    labelArvoreAVLTempo.setText(contador.getArvoreAVL().getTempo());
+
+                                    labelArvoreBinariaComparacoes.setText(contador.getArvoreBinaria().getComparacoes() + "");
+                                    labelArvoreBinariaTempo.setText(contador.getArvoreBinaria().getTempo());
+
+                                    btnOcorrencias.setDisable(false);
+                                }
+                            });
                         }else{
                             throw new Exception("Não foi possível processar o arquivo.");
                         }
 
-                        labelCarregando.setVisible(false);
+
+
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                labelCarregando.setVisible(false);
+                            }
+                        });
                     }catch (Exception e) {
                         e.printStackTrace();
-                        PopupAlerta.setContentText(e.getMessage());
-                        PopupAlerta.show();
-                        labelCarregando.setVisible(false);
-                        //setCarregandoVisible(false);
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                PopupAlerta.setContentText(e.getMessage());
+                                PopupAlerta.show();
+                                labelCarregando.setVisible(false);
+                                //setCarregandoVisible(false);
+                            }
+                        });
                     }
                 }
-            }).run();
+            }).start();
         }
     }
 
