@@ -33,6 +33,7 @@ public class ArvoreDesbalanceada {
             }
         }
         retorno.setTempo(tempoFinal+" " + tempoAtual);
+        //printAVLTree();
         return retorno;
     }
 

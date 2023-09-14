@@ -19,7 +19,7 @@ public class QuickSort {
 
             while (i < u && a[i].getPalavra().compareTo(pivô.getPalavra()) < 0) i++;      // Organiza primeira metade
 
-            while (f > p && a[f].getPalavra().compareTo(pivô.getPalavra())> 0) f--;      // Organiza segunda metade
+            while (f > p && a[f].getPalavra().compareTo(pivô.getPalavra()) > 0) f--;      // Organiza segunda metade
 
             if (i <= f) {                          // Se ainda não acabou
                 Palavra aux = a[f];                            // troca os elementos

@@ -5,15 +5,17 @@ import com.jp.persistencia.Binaria;
 public class BuscaBinaria {
 
     public static int binaria(Palavra vetor[], String palavra, int inicio, int fim){
-        Binaria.incComparacoes();
         if(inicio > fim) return -1;
+
+        Binaria.incComparacoes();
 
         int meio = (inicio + fim)/2;
 
-        Binaria.incComparacoes();
+
+        //Binaria.incComparacoes();
         if(vetor[meio].getPalavra().equals(palavra)) return meio;
 
-        Binaria.incComparacoes();
+        //Binaria.incComparacoes();
         if(palavra.compareTo(vetor[meio].getPalavra()) < 0) return binaria(vetor, palavra, inicio, meio - 1);
 
         /*Binaria.incComparacoes();

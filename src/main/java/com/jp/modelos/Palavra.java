@@ -16,10 +16,6 @@ public class Palavra {
         return ocorrencias;
     }
 
-    public void setOcorrencias(int ocorrencias) {
-        this.ocorrencias = ocorrencias;
-    }
-
     public void incOcorrencias() {
         this.ocorrencias += 1;
     }

@@ -63,8 +63,10 @@ public class TelaHome implements Initializable {
 
         if (arquivo != null){
             labelCarregando.setVisible(true);
-            new Thread(() -> {
-                try {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
                         contador = controle.arvorizar(arquivo.getAbsolutePath());
 
                         if (contador != null){
@@ -83,12 +85,13 @@ public class TelaHome implements Initializable {
                         }
 
                         labelCarregando.setVisible(false);
-                }catch (Exception e) {
-                    e.printStackTrace();
-                    PopupAlerta.setContentText(e.getMessage());
-                    PopupAlerta.show();
-                    labelCarregando.setVisible(false);
-                    //setCarregandoVisible(false);
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                        PopupAlerta.setContentText(e.getMessage());
+                        PopupAlerta.show();
+                        labelCarregando.setVisible(false);
+                        //setCarregandoVisible(false);
+                    }
                 }
             }).run();
         }

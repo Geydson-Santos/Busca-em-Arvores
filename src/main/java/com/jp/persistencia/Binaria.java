@@ -18,6 +18,7 @@ public class Binaria {
         Palavra palavras[] = new Palavra[0];
         
         for(int j = 0; j < vetorDePalavras.length;j++) {
+            //System.out.println("processando palavra");
             String palavraString = vetorDePalavras[j];
             int posPalavraEncontrada = BuscaBinaria.binaria(palavras, palavraString, 0, palavras.length-1);
             boolean palavraIgual = posPalavraEncontrada != -1;
@@ -28,8 +29,7 @@ public class Binaria {
             else{
                 Palavra novoVetorPalavra[] = new Palavra[palavras.length+1];
                 for(int i = 0; i<palavras.length;i++) {
-                    novoVetorPalavra[i] = new Palavra(palavras[i].getPalavra());
-                    novoVetorPalavra[i].setOcorrencias(palavras[i].getOcorrencias());
+                    novoVetorPalavra[i] = palavras[i];
                 }
                 novoVetorPalavra[novoVetorPalavra.length-1] = new Palavra(palavraString);
                 palavras = novoVetorPalavra;

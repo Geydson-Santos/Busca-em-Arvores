@@ -4,6 +4,7 @@ import com.jp.persistencia.*;
 import com.jp.modelos.Contador;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.Normalizer;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -28,13 +29,28 @@ public class Controle implements IControle{
 
     private String limpaTexto(String caminhoDoTXT) throws FileNotFoundException {
         String textoBruto = new Scanner(new File(caminhoDoTXT), "UTF-8").useDelimiter("\\A").next();
-        textoBruto = textoBruto.replaceAll("[^\\w\\s]", "");
+
+        char[] letras = textoBruto.toCharArray();
+
+        textoBruto = "";
+
+        for(int i = 0; i < letras.length; i++){
+            if (Character.isAlphabetic(letras[i]) || Character.isDigit(letras[i])) textoBruto += letras[i];
+            else textoBruto += " ";
+        }
+
+        String normalizer = Normalizer.normalize(textoBruto, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("[^\\p{ASCII}]");
+        textoBruto = pattern.matcher(normalizer).replaceAll("");
+
+        //textoBruto = textoBruto.replaceAll("[^a-z\\s]", " ");
+        textoBruto = textoBruto.replaceAll(System.lineSeparator(), " ");
         while(textoBruto.contains("  ")) {
             textoBruto = textoBruto.replace("  ", " ");
-            textoBruto = textoBruto.replace(System.lineSeparator(), " ");
         }
         String textoLimpo = textoBruto.trim();
         textoLimpo = textoLimpo.toLowerCase();
+        //System.out.println(textoLimpo);
         return textoLimpo;
     }
 
