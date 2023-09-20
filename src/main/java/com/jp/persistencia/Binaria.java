@@ -35,7 +35,7 @@ public class Binaria {
                 novoVetorPalavra[novoVetorPalavra.length-1] = new Palavra(palavraString);
                 palavras = novoVetorPalavra;
                 palavras = QuickSort.quickSort(palavras);
-                System.out.println(palavraString);
+                //System.out.println(palavraString);
             }
         }
         

@@ -35,7 +35,7 @@
         -->
     </dependencies>
     <build>
-        <finalName>Busca em Árvores</finalName>
+        <finalName>Busca_em_Arvores</finalName>
         <resources>
             <resource>
                 <directory>
