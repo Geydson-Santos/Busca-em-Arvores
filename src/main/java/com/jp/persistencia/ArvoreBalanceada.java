@@ -39,9 +39,9 @@ public class ArvoreBalanceada {
 
     public class Node {
         public Palavra key;
-        int height;
-        Node left;
-        Node right;
+        public int height;
+        public Node left;
+        public Node right;
 
         Node(Palavra key) {
             this.key = key;

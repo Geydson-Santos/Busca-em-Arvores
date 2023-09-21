@@ -1,6 +1,8 @@
 package com.jp.visao;
 
+import com.jp.modelos.Contador;
 import com.jp.modelos.Palavra;
+import com.jp.persistencia.ArvoreBalanceada;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,14 +28,34 @@ public class TelaÁrvore implements Initializable {
     @FXML
     private TreeView viewArvore;
 
+    public void criarArvore(ArvoreBalanceada.Node node, TreeItem item){
+        if (node.left != null){
+            TreeItem itemLeft = new TreeItem(node.left.key);
+            item.getChildren().add(itemLeft);
+
+            criarArvore(node.left, itemLeft);
+        }
+        if (node.right != null){
+            TreeItem itemRight = new TreeItem(node.right.key);
+            item.getChildren().add(itemRight);
+
+            criarArvore(node.right, itemRight);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            TreeItem item1 = new TreeItem(new Palavra("Teste1"));
-            TreeItem item2 = new TreeItem(new Palavra("Teste2"));
-            TreeItem item3 = new TreeItem(new Palavra("Teste3"));
-            viewArvore.setRoot(item1);
-            item1.getChildren().addAll(item2, item3);
+            Contador contador = Run.telaHome.contador;
+
+            ArvoreBalanceada.Node raiz = contador.getAvore().getRoot();
+
+            TreeItem itemRaiz = new TreeItem(raiz.key);
+
+            viewArvore.setRoot(itemRaiz);
+
+            criarArvore(raiz, itemRaiz);
+
         }catch (Exception e) {
             e.printStackTrace();
         }
