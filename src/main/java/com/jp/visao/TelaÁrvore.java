@@ -72,7 +72,12 @@ public class TelaÁrvore implements Initializable {
 
             viewArvore.setRoot(itemRaiz);
 
-            criarArvore(raiz, itemRaiz);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    criarArvore(raiz, itemRaiz);
+                }
+            }).start();
 
         }
     }
@@ -88,7 +93,12 @@ public class TelaÁrvore implements Initializable {
 
             viewArvore.setRoot(itemRaiz);
 
-            criarArvoreD(raiz, itemRaiz);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    criarArvoreD(raiz, itemRaiz);
+                }
+            }).start();
 
         }
     }
