@@ -24,7 +24,7 @@ public class Controle implements IControle{
         resposta.setArvoreAVL(AB.executarCodigo(textoSeparado));
         resposta.setArvoreBinaria(AD.executarCodigo(textoSeparado));
         resposta.setAvore(AB);
-        resposta.getAvoreD(AD);
+        resposta.setAvoreD(AD);
         return resposta;
     }
 

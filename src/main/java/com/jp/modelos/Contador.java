@@ -66,7 +66,7 @@ public class Contador {
         this.avore = avore;
     }
 
-    public ArvoreDesbalanceada getAvoreD(ArvoreDesbalanceada AD) {
+    public ArvoreDesbalanceada getAvoreD() {
         return avoreD;
     }
 

@@ -59,21 +59,36 @@ public class TelaÁrvore implements Initializable {
         }
     }
 
+
+
+    @FXML
+    void clickBalanceada(ActionEvent event) {
+        Contador contador = Run.telaHome.contador;
+
+        ArvoreBalanceada.Node raiz = contador.getAvore().getRoot();
+
+        TreeItem itemRaiz = new TreeItem(raiz.key);
+
+        viewArvore.setRoot(itemRaiz);
+
+        criarArvore(raiz, itemRaiz);
+    }
+
+    @FXML
+    void clickDesbalanceada(ActionEvent event) {
+        Contador contador = Run.telaHome.contador;
+
+        ArvoreDesbalanceada.Node raiz = contador.getAvoreD().getRoot();
+
+        TreeItem itemRaiz = new TreeItem(raiz.key);
+
+        viewArvore.setRoot(itemRaiz);
+
+        criarArvoreD(raiz, itemRaiz);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            Contador contador = Run.telaHome.contador;
-
-            ArvoreBalanceada.Node raiz = contador.getAvore().getRoot();
-
-            TreeItem itemRaiz = new TreeItem(raiz.key);
-
-            viewArvore.setRoot(itemRaiz);
-
-            criarArvore(raiz, itemRaiz);
-
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+        clickBalanceada(null);
     }
 }
