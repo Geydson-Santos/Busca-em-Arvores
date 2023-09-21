@@ -23,6 +23,8 @@ public class Controle implements IControle{
         ArvoreDesbalanceada AD = new ArvoreDesbalanceada();
         resposta.setArvoreAVL(AB.executarCodigo(textoSeparado));
         resposta.setArvoreBinaria(AD.executarCodigo(textoSeparado));
+        resposta.setAvore(AB);
+        resposta.getAvoreD(AD);
         return resposta;
     }
 
