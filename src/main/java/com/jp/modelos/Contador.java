@@ -7,6 +7,8 @@ public class Contador {
     private Conta buscaBinaria;
     private Palavra[] vetorDinamico;
 
+
+
     public Contador() {
 
     }

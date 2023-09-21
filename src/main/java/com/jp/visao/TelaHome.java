@@ -47,6 +47,8 @@ public class TelaHome implements Initializable {
     @FXML
     public Pane paneRoot;
 
+    @FXML
+    private Button btnArvore;
     IControle controle = new Controle();
 
     public Contador contador =  null
@@ -87,6 +89,7 @@ public class TelaHome implements Initializable {
                                     labelArvoreBinariaTempo.setText(contador.getArvoreBinaria().getTempo());
 
                                     btnOcorrencias.setDisable(false);
+                                    btnArvore.setDisable(false);
                                 }
                             });
                         }else{
@@ -125,6 +128,10 @@ public class TelaHome implements Initializable {
         Run.telaPrincipal.setEditWindow("Ocorrência das Palavras", Run.app.getScene("TelaOcorrências.fxml"), (e) -> nothing());
     }
 
+    @FXML
+    void visualizarArvore(ActionEvent event) {
+        Run.telaPrincipal.setEditWindow("Árvore", Run.app.getScene("TelaÁrvore.fxml"), (e) -> nothing());
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Run.telaHome = this;

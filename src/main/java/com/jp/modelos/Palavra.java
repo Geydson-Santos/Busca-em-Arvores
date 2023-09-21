@@ -4,6 +4,11 @@ public class Palavra {
     private final String palavra;
     private int ocorrencias = 1;
 
+    @Override
+    public String toString() {
+        return palavra + " - "+ ocorrencias;
+    }
+
     public Palavra(String palavra) {
         this.palavra = palavra;
     }
