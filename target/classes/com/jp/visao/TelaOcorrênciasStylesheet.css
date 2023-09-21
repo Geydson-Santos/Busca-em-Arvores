@@ -5,8 +5,10 @@
 .table-view {
     -fx-background-color: #e6e6e6;
 }
-.table-view:hover{
+
+*:hover {
     -fx-background-color: #d2d2d2;
+
 }
 
 .coluna {
