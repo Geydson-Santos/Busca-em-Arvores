@@ -38,7 +38,7 @@ public class Controle implements IControle{
         textoBruto = "";
 
         for(int i = 0; i < letras.length; i++){
-            System.out.println(i + "|" + letras.length);
+            //System.out.println(i + "|" + letras.length);
             if (Character.isAlphabetic(letras[i]) || Character.isDigit(letras[i])) textoBruto += letras[i];
             else if(i - 1 >= 0 && Character.isAlphabetic(letras[i-1]) && (letras[i] == '-' || letras[i] == '\'') && i + 1 < letras.length && Character.isAlphabetic(letras[i+1])) textoBruto += letras[i];
             else textoBruto += " ";

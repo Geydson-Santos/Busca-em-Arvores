@@ -123,7 +123,7 @@ public class ArvoreBalanceada {
             node.right = insert(node.right, key);
         } else {
             compara++;
-            //System.out.println("Deu certo");
+            node.key.incOcorrencias();
         }
         return rebalance(node);
     }
