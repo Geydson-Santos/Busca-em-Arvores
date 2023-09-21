@@ -3,6 +3,7 @@ package com.jp.visao;
 import com.jp.modelos.Contador;
 import com.jp.modelos.Palavra;
 import com.jp.persistencia.ArvoreBalanceada;
+import com.jp.persistencia.ArvoreDesbalanceada;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,6 +41,21 @@ public class TelaÁrvore implements Initializable {
             item.getChildren().add(itemRight);
 
             criarArvore(node.right, itemRight);
+        }
+    }
+
+    public void criarArvoreD(ArvoreDesbalanceada.Node node, TreeItem item){
+        if (node.left != null){
+            TreeItem itemLeft = new TreeItem(node.left.key);
+            item.getChildren().add(itemLeft);
+
+            criarArvoreD(node.left, itemLeft);
+        }
+        if (node.right != null){
+            TreeItem itemRight = new TreeItem(node.right.key);
+            item.getChildren().add(itemRight);
+
+            criarArvoreD(node.right, itemRight);
         }
     }
 
