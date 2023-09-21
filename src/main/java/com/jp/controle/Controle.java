@@ -17,6 +17,10 @@ public class Controle implements IControle{
         texto = retiraStop(texto);
         //System.out.println("1");
         String[] textoSeparado = texto.split(" ");
+
+        if (textoSeparado.length == 1 && textoSeparado[0] == ""){
+            textoSeparado = new String[0];
+        }
         //System.out.println("2");
         Contador resposta = Binaria.buscaBinaria(textoSeparado);
         ArvoreBalanceada AB = new ArvoreBalanceada();
@@ -63,10 +67,17 @@ public class Controle implements IControle{
 
     private String retiraStop(String textoBruto) throws Exception{
         textoBruto = " " + textoBruto + " ";
+        String[] StopWords = new Scanner(getClass().getResourceAsStream("/com/jp/arquivos/stopwords.txt")/*.replace("file:", "").replace("jar:", "")*/).useDelimiter("\\A").next().split("\n");
 
-        String[] StopWords = new Scanner(getClass().getResource("/com/jp/arquivos/stopwords.txt").toString()).useDelimiter("\\A").next().split(" \n");
+
         for (String palavra :
                 StopWords) {
+            palavra = palavra.replace("\n", " ").trim();
+
+            String normalizer = Normalizer.normalize(palavra, Normalizer.Form.NFD);
+            Pattern pattern = Pattern.compile("[^\\p{ASCII}]");
+            palavra = pattern.matcher(normalizer).replaceAll("");
+
             textoBruto = textoBruto.replace(" "+ palavra + " ", " ");
         }
         textoBruto = textoBruto.trim();

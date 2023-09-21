@@ -67,11 +67,14 @@ public class TelaÁrvore implements Initializable {
 
         ArvoreBalanceada.Node raiz = contador.getAvore().getRoot();
 
-        TreeItem itemRaiz = new TreeItem(raiz.key);
+        if (raiz != null){
+            TreeItem itemRaiz = new TreeItem(raiz.key);
 
-        viewArvore.setRoot(itemRaiz);
+            viewArvore.setRoot(itemRaiz);
 
-        criarArvore(raiz, itemRaiz);
+            criarArvore(raiz, itemRaiz);
+
+        }
     }
 
     @FXML
@@ -80,11 +83,14 @@ public class TelaÁrvore implements Initializable {
 
         ArvoreDesbalanceada.Node raiz = contador.getAvoreD().getRoot();
 
-        TreeItem itemRaiz = new TreeItem(raiz.key);
+        if (raiz != null){
+            TreeItem itemRaiz = new TreeItem(raiz.key);
 
-        viewArvore.setRoot(itemRaiz);
+            viewArvore.setRoot(itemRaiz);
 
-        criarArvoreD(raiz, itemRaiz);
+            criarArvoreD(raiz, itemRaiz);
+
+        }
     }
 
     @Override
