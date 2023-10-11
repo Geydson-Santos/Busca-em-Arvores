@@ -1,5 +1,6 @@
 package com.jp.modelos;
 
+import com.jp.persistencia.ArvoreB;
 import com.jp.persistencia.ArvoreBalanceada;
 import com.jp.persistencia.ArvoreDesbalanceada;
 
@@ -8,11 +9,15 @@ public class Contador {
     private Conta arvoreAVL;
     private Conta arvoreBinaria;
     private Conta buscaBinaria;
+
+    private Conta arvoreB;
     private Palavra[] vetorDinamico;
 
     private ArvoreBalanceada avore;
 
     private ArvoreDesbalanceada avoreD;
+
+    private ArvoreB avoreB;
 
 
     public Contador() {
@@ -24,6 +29,22 @@ public class Contador {
         this.arvoreBinaria = arvoreBinaria;
         this.buscaBinaria = buscaBinaria;
         this.vetorDinamico = vetorDinamico;
+    }
+
+    public ArvoreB getAvoreB() {
+        return avoreB;
+    }
+
+    public void setAvoreB(ArvoreB avoreB) {
+        this.avoreB = avoreB;
+    }
+
+    public Conta getArvoreB() {
+        return arvoreB;
+    }
+
+    public void setArvoreB(Conta arvoreB) {
+        this.arvoreB = arvoreB;
     }
 
     public Conta getArvoreAVL() {

@@ -37,10 +37,10 @@ public class TelaHome implements Initializable {
     private Label labelArvoreBinariaTempo;
 
     @FXML
-    private Label labelBuscaBinariaComparacoes;
+    private Label labelArvoreBComparacoes;
 
     @FXML
-    private Label labelBuscaBinariaTempo;
+    private Label labelArvoreBTempo;
 
     @FXML
     private Label labelCarregando;
@@ -79,8 +79,8 @@ public class TelaHome implements Initializable {
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
-                                    labelBuscaBinariaComparacoes.setText(contador.getBuscaBinaria().getComparacoes() + "");
-                                    labelBuscaBinariaTempo.setText(contador.getBuscaBinaria().getTempo());
+                                    labelArvoreBComparacoes.setText(contador.getArvoreB().getComparacoes() + "");
+                                    labelArvoreBTempo.setText(contador.getArvoreB().getTempo());
 
                                     labelArvoreAVLComparacoes.setText(contador.getArvoreAVL().getComparacoes() + "");
                                     labelArvoreAVLTempo.setText(contador.getArvoreAVL().getTempo());
