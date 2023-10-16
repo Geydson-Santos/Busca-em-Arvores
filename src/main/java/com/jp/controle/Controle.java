@@ -25,7 +25,6 @@ public class Controle implements IControle{
         Contador resposta = Binaria.buscaBinaria(textoSeparado);
         ArvoreBalanceada AB = new ArvoreBalanceada();
         ArvoreDesbalanceada AD = new ArvoreDesbalanceada();
-        ArvoreB ABB = new ArvoreB(0);
         resposta.setArvoreAVL(AB.executarCodigo(textoSeparado));
         resposta.setArvoreBinaria(AD.executarCodigo(textoSeparado));
         resposta.setAvore(AB);
